@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Muebles Metal & Madera | Plantilla</title>
+    <style>
+      :root {
+        --metal-oscuro: #111827;
+        --metal-grafito: #374151;
+        --metal-claro: #9ca3af;
+        --madera-cobre: #b45309;
+        --madera-dorada: #f59e0b;
+        --madera-clara: #fcd9b6;
+        --fondo: #0b1220;
+        --texto: #f3f4f6;
+        --card: rgba(255, 255, 255, 0.06);
+        --borde: rgba(255, 255, 255, 0.15);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        color: var(--texto);
+        background: #1f2933;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        line-height: 1.5;
+      }
+
+      .contenedor {
+        width: min(1180px, 92%);
+        margin: 0 auto;
+      }
+
+      header {
+        padding: 1rem 0 3rem;
+      }
+
+      .topbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+
+      .marca {
+        font-size: 1.15rem;
+        font-weight: 700;
+        letter-spacing: 0.6px;
+      }
+
+      .marca span {
+        color: var(--madera-dorada);
+      }
+
+      nav {
+        display: flex;
+        gap: 0.7rem;
+        flex-wrap: wrap;
+      }
+
+      nav a {
+        color: var(--texto);
+        text-decoration: none;
+        border: 1px solid var(--borde);
+        border-radius: 999px;
+        padding: 0.4rem 0.85rem;
+        font-size: 0.9rem;
+        transition: background-color 0.25s ease, border-color 0.25s ease, transform 0.2s ease;
+      }
+
+      nav a:hover {
+        background-color: rgba(255, 255, 255, 0.08);
+        border-color: rgba(255, 255, 255, 0.35);
+        transform: translateY(-1px);
+      }
+
+      .hero {
+        margin-top: 2.2rem;
+        display: grid;
+        grid-template-columns: 1.2fr 1fr;
+        gap: 1.2rem;
+      }
+
+      .hero-info,
+      .hero-box {
+        background: var(--card);
+        border: 1px solid var(--borde);
+        border-radius: 18px;
+        backdrop-filter: blur(8px);
+      }
+
+      .hero-info {
+        padding: 2rem;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        line-height: 1.1;
+      }
+
+      .subtitulo {
+        margin-top: 1rem;
+        font-size: 1.05rem;
+        color: #d1d5db;
+      }
+
+      .cta-group {
+        margin-top: 1.3rem;
+        display: flex;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        text-decoration: none;
+        padding: 0.75rem 1.1rem;
+        border-radius: 10px;
+        font-weight: 700;
+        transition: transform 0.2s ease, box-shadow 0.25s ease, opacity 0.2s ease;
+      }
+
+      .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.28);
+      }
+
+      .btn-principal {
+        background: linear-gradient(135deg, var(--madera-cobre), var(--madera-dorada));
+        color: #1f1303;
+      }
+
+      .btn-secundario {
+        border: 1px solid var(--metal-claro);
+        color: var(--texto);
+      }
+
+      .hero-box {
+        padding: 1.4rem;
+      }
+
+      .hero-box h2,
+      .seccion h2 {
+        margin-top: 0;
+      }
+
+      .lista {
+        margin: 0;
+        padding-left: 1.2rem;
+      }
+
+      main {
+        padding-bottom: 3rem;
+      }
+
+      .seccion {
+        margin-top: 1.2rem;
+        padding: 1.5rem;
+        background: var(--card);
+        border: 1px solid var(--borde);
+        border-radius: 16px;
+      }
+
+      .grid-3 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        gap: 1rem;
+      }
+
+      .tarjeta {
+        background: rgba(0, 0, 0, 0.22);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 14px;
+        padding: 1rem;
+        transition: transform 0.22s ease, box-shadow 0.22s ease;
+      }
+
+      .tarjeta:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.28);
+      }
+
+      .tarjeta h3 {
+        margin-top: 0;
+        color: var(--madera-dorada);
+      }
+
+      .destacado {
+        border-left: 4px solid var(--madera-dorada);
+        padding-left: 0.75rem;
+      }
+
+      .dos-columnas {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1rem;
+      }
+
+      .campo {
+        display: grid;
+        gap: 0.35rem;
+        margin-bottom: 0.7rem;
+      }
+
+      .campo input,
+      .campo select,
+      .campo textarea {
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        background: rgba(255, 255, 255, 0.08);
+        color: var(--texto);
+        border-radius: 8px;
+        padding: 0.65rem 0.7rem;
+        font: inherit;
+      }
+
+
+      form .btn-principal {
+        display: inline-block;
+        margin-top: 10px;
+      }
+
+      footer {
+        border-top: 1px solid var(--borde);
+        color: #c7cdd7;
+        text-align: center;
+        padding: 1rem 0 2rem;
+      }
+
+      @media (max-width: 860px) {
+        .hero {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="contenedor">
+        <div class="topbar">
+          <div class="marca">Muebles <span>Metal & Madera</span></div>
+          <nav aria-label="Navegación principal">
+            <a href="#catalogo">Catálogo</a>
+            <a href="#medida">A medida</a>
+            <a href="#proyectos">Proyectos</a>
+            <a href="#contacto">Contacto</a>
+          </nav>
+        </div>
+
+        <section class="hero">
+          <article class="hero-info">
+            <h1>Muebles que enamoran a primera vista y convierten visitas en clientes</h1>
+            <p class="subtitulo">
+              Diseñamos piezas únicas en metal y madera con acabados premium, calidad garantizada y atención personalizada para tu hogar o negocio.
+            </p>
+            <div class="cta-group">
+              <a class="btn btn-principal" href="#contacto">Quiero cotizar</a>
+              <a class="btn btn-secundario" href="#catalogo">Ver catálogo</a>
+            </div>
+          </article>
+
+          <aside class="hero-box">
+            <h2>Información que debes completar</h2>
+            <ul class="lista">
+              <li>Teléfono y WhatsApp.</li>
+              <li>Zona de cobertura / envíos.</li>
+              <li>Tiempos de fabricación y entrega.</li>
+              <li>Garantía y métodos de pago.</li>
+              <li>Redes sociales y ubicación.</li>
+            </ul>
+          </aside>
+        </section>
+      </div>
+    </header>
+
+    <main class="contenedor">
+      <section class="seccion" id="catalogo">
+        <h2>Catálogo destacado</h2>
+        <p class="destacado">
+          Reemplaza cada bloque con fotos reales de tus muebles estrella.
+        </p>
+        <div class="grid-3">
+          <article class="tarjeta">
+            <h3>Mesa industrial</h3>
+            <p>Medidas: 160x90 cm · Cubierta en madera sólida.</p>
+            <p><strong>Desde: $____</strong></p>
+          </article>
+          <article class="tarjeta">
+            <h3>Rack para TV</h3>
+            <p>Estructura metálica + repisas personalizadas.</p>
+            <p><strong>Desde: $____</strong></p>
+          </article>
+          <article class="tarjeta">
+            <h3>Escritorio ejecutivo</h3>
+            <p>Acabado premium para hogar y oficina.</p>
+            <p><strong>Desde: $____</strong></p>
+          </article>
+        </div>
+      </section>
+
+      <section class="seccion" id="medida">
+        <h2>Muebles a medida</h2>
+        <div class="dos-columnas">
+          <article class="tarjeta">
+            <h3>Proceso recomendado</h3>
+            <ol>
+              <li>Cliente envía medidas y fotos del espacio.</li>
+              <li>Se comparte propuesta + tiempo de entrega.</li>
+              <li>Se confirma anticipo y se inicia fabricación.</li>
+            </ol>
+          </article>
+          <article class="tarjeta">
+            <h3>Opciones personalizables</h3>
+            <ul>
+              <li>Tipo y tono de madera.</li>
+              <li>Color de pintura electrostática en metal.</li>
+              <li>Medidas exactas por ambiente.</li>
+              <li>Acabados mate, satinado o brillante.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section class="seccion" id="proyectos">
+        <h2>Proyectos y testimonios</h2>
+        <div class="grid-3">
+          <article class="tarjeta">
+            <h3>Proyecto Casa Moderna</h3>
+            <p>Comedor de 8 puestos + bar auxiliar en roble.</p>
+          </article>
+          <article class="tarjeta">
+            <h3>Testimonio cliente</h3>
+            <p>“Excelente calidad, acabados impecables y entrega puntual”.</p>
+            <p><strong>— Nombre Cliente</strong></p>
+          </article>
+          <article class="tarjeta">
+            <h3>Proyecto Oficina Creativa</h3>
+            <p>12 escritorios industriales y 2 salas colaborativas.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="seccion" id="contacto">
+        <h2>Formulario de contacto (plantilla)</h2>
+        <p>
+          Puedes conectarlo después a WhatsApp, correo o un backend.
+        </p>
+        <form>
+          <div class="dos-columnas">
+            <label class="campo">
+              Nombre completo
+              <input type="text" placeholder="Ej. Laura Gómez" />
+            </label>
+            <label class="campo">
+              Teléfono / WhatsApp
+              <input type="tel" placeholder="+57 300 000 0000" />
+            </label>
+          </div>
+
+          <label class="campo">
+            Tipo de mueble
+            <select>
+              <option>Mesa</option>
+              <option>Escritorio</option>
+              <option>Rack TV</option>
+              <option>Closet / estantería</option>
+              <option>Otro</option>
+            </select>
+          </label>
+
+          <label class="campo">
+            Detalles del proyecto
+            <textarea rows="4" placeholder="Cuéntanos medidas, estilo y fecha estimada"></textarea>
+          </label>
+
+          <a class="btn btn-principal" href="#">Enviar solicitud</a>
+        </form>
+      </section>
+    </main>
+
+    <footer>
+      © 2026 Muebles Metal & Madera · Plantilla base de alto impacto visual.
+    </footer>
+  </body>
+</html>
